@@ -4,8 +4,8 @@ import os
 import tempfile
 import pytest
 
-# Point the DB to a temp file before importing database
-_tmp = tempfile.mktemp(suffix=".db")
+# Each test module gets its own DB file so they don't collide when run together.
+_tmp = tempfile.mktemp(suffix="-unit.db")
 os.environ["POCKETLEDGER_DB"] = _tmp
 
 import database  # noqa: E402 — must import after env var is set
@@ -14,7 +14,8 @@ import database  # noqa: E402 — must import after env var is set
 @pytest.fixture(autouse=True)
 def fresh_db():
     """Re-initialise a clean DB before each test and remove it afterward."""
-    # Remove any leftover file
+    # Force the module-level DB_PATH to our temp file (guards against re-import ordering)
+    database.DB_PATH = _tmp
     if os.path.exists(_tmp):
         os.remove(_tmp)
     database.init_db()
