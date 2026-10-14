@@ -1,0 +1,8 @@
+2024-06-15T09:00:00Z agent Scaffolded PocketLedger backend: FastAPI + SQLite database layer (database.py, main.py)
+2024-06-15T09:05:00Z agent Scaffolded PocketLedger frontend: React 18 + Vite with TransactionForm, TransactionList, BarChart, Balance components
+2024-06-15T09:10:00Z agent Wrote 7 pytest unit tests covering create, list, filter, delete, and aggregation in test_database.py
+2024-06-15T09:15:00Z agent Created AGENTS.md describing two-service architecture, auth model, database layer, and project constraints
+2024-06-15T09:20:00Z agent Created .bob/rules/pocketledger-standards.md with float precision, JSDoc, and audit log rules
+2024-06-15T09:25:00Z agent Created .bob/custom_modes.yaml defining ledger-reviewer read-only mode with 3 custom instructions
+2024-06-15T09:30:00Z agent Ran ledger-reviewer mode initial review — output saved to ledger-review/initial-review.md
+2024-06-15T09:35:00Z agent Created start.sh for one-command local startup of both backend and frontend services
